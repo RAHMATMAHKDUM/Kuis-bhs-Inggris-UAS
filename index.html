@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+ 
+  </style>
+</head>
+<body>
+  <div id="welcome-screen">
+    <h1>Game Belajar Bahasa Inggris</h1>
+    <label for="name-input">Masukkan nama Anda:</label>
+    <input type="text" id="name-input" placeholder="Nama Anda">
+    <button onclick="startGame()">Mulai Permainan</button>
+  </div>
+
+  <div id="game-screen" style="display: none;">
+    <h1>Level 1</h1>
+    <div id="question">
+      <img id="image" src="" alt="">
+      <div id="question-text"></div>
+    </div>
+    <div id="options"></div>
+    <div id="result"></div>
+    <div id="next-button" style="display: none;">Lanjut</div>
+    <div id="finish-button" style="display: none;">Selesai</div>
+    <div id="level2-button" style="display: none;">Lanjut ke Level 2</div>
+  </div>
+  <script>
+     var playerName = "";
+var currentLevel = 0;
+var score = 0;
+
+
+    var levels = [
+      {
+        questions: [
+        {
+        question: "Apakah arti dari 'apple'?",
+        image: "image/apple.webp",
+        options: ["A. Jeruk", "B. Pisang", "C. Apel"],
+        answer: 2
+    },
+    {
+        question: "Apakah arti dari 'cat'?",
+        image: "image/cat.png",
+        options: ["A. Anjing", "B. Kucing", "C. Tikus"],
+        answer: 1
+    },
+    {
+        question: "Apakah arti dari 'book'?",
+        image: "image/book.png",
+        options: ["A. Buku", "B. Pena", "C. Meja"],
+        answer: 0
+    },
+    {
+        question: "Apakah arti dari 'cow'?",
+        image: "image/bgsapi.png",
+        options: ["A. Lampu", "B. Sapi", "C. Pensil"],
+        answer: 1
+    },
+    {
+        question: "Apakah arti dari 'grass'?",
+        image: "image/rumput.png",
+        options: ["A.  Rumput", "B. Helikopter", "C. Gelas"],
+        answer: 0
+    }
+
+        ]
+      },
+      {
+        questions: [
+        {
+        question: "Apakah arti dari sayuran 'carrot'?",
+        image: "image/wortel.png",
+        options: ["A. Jeruk", "B. Wortel", "C. Semangka"],
+        answer: 1
+      },
+      {
+        question: "Apakah arti dari 'car'?",
+        image: "image/mobil.png",
+        options: ["A. Anjing", "B. Kucing", "C.Mobil "],
+        answer: 2
+      },
+      {
+        question: "Apa bahasa inggrisnya 'Matahari'?",
+        image: "image/matahari.png",
+        options: ["A. Car", "B. Sun", "C. Grass"],
+        answer: 1
+      },
+      {
+        question: "Apa bahasa inggrisnya hewan 'Gajah'?",
+        image: "image/gajah.png",
+        options: ["A. Elephant", "B. Cat", "C. lion"],
+        answer: 0
+      },
+      {
+        question: "Apa bahasa inggrisnya 'topi'?",
+        image: "image/topi.png",
+        options: ["A.  Toy", "B. Holiday", "C. Hat"],
+        answer: 2
+      },
+      {
+        question: "Apa bahasa inggrisnya 'Budi Sedang Menulis'?",
+        image: "image/budi.png",
+        options: ["A.  Budi is Writing", "B. Writing", "C. Budi is Read"],
+        answer: 0
+      }
+
+        ]
+      },
+      {
+        questions: [
+        {
+        question: "Apa bahasa inggrisnya buah 'Anggur dan Nanas'?",
+        image: "image/anggnanas.png",
+        options: ["A. Jeruk", "B. Wortel", "C. Semangka"],
+        answer: 1
+      },
+      {
+        question: "Apakah arti dari 'car'?",
+        image: "image/mobil.png",
+        options: ["A. Anjing", "B. Kucing", "C.Mobil "],
+        answer: 2
+      },
+      {
+        question: "Apa bahasa inggrisnya 'Matahari'?",
+        image: "image/matahari.png",
+        options: ["A. Car", "B. Sun", "C. Grass"],
+        answer: 1
+      },
+      {
+        question: "Apa bahasa inggrisnya hewan 'Gajah'?",
+        image: "image/gajah.png",
+        options: ["A. Elephant", "B. Cat", "C. lion"],
+        answer: 0
+      },
+      {
+        question: "Apa bahasa inggrisnya 'topi'?",
+        image: "image/topi.png",
+        options: ["A.  Toy", "B. Holiday", "C. Hat"],
+        answer: 2
+      },
+      {
+        question: "Apa bahasa inggrisnya 'Padi'?",
+        image: "image/padi.png",
+        options: ["A.  Budi is Writing", "B. Writing", "C. Budi is Read"],
+        answer: 0
+      },
+      {
+        question: "Apa bahasa inggrisnya 'Petani Menanam Padi'?",
+        image: "image/menanampadi.png",
+        options: ["A.  Budi is Writing", "B. Writing", "C. Budi is Read"],
+        answer: 0
+      }
+
+        ]
+      },
+      {
+        questions: [
+        {
+        question: "Apa bahasa inggrisnya buah 'Anggur dan Nanas'?",
+        image: "image/anggnanas.png",
+        options: ["A. Jeruk", "B. Wortel", "C. Semangka"],
+        answer: 1
+      },
+      {
+        question: "Apakah arti dari 'car'?",
+        image: "image/mobil.png",
+        options: ["A. Anjing", "B. Kucing", "C.Mobil "],
+        answer: 2
+      },
+      {
+        question: "Apa bahasa inggrisnya 'Matahari'?",
+        image: "image/matahari.png",
+        options: ["A. Car", "B. Sun", "C. Grass"],
+        answer: 1
+      },
+      {
+        question: "Apa bahasa inggrisnya hewan 'Gajah'?",
+        image: "image/gajah.png",
+        options: ["A. Elephant", "B. Cat", "C. lion"],
+        answer: 0
+      },
+      {
+        question: "Apa bahasa inggrisnya 'topi'?",
+        image: "image/topi.png",
+        options: ["A.  Toy", "B. Holiday", "C. Hat"],
+        answer: 2
+      },
+      {
+        question: "Apa bahasa inggrisnya 'Padi'?",
+        image: "image/padi.png",
+        options: ["A.  Budi is Writing", "B. Writing", "C. Budi is Read"],
+        answer: 0
+      },
+      {
+        question: "Apa bahasa inggrisnya 'Petani Menanam Padi'?",
+        image: "image/menanampadi.png",
+        options: ["A.  Budi is Writing", "B. Writing", "C. Budi is Read"],
+        answer: 0
+      }
+
+        ]
+      }
+    ];
+
+ 
+
+function startGame() {
+  var nameInput = document.getElementById("name-input");
+  playerName = nameInput.value.trim();
+
+  if (!playerName) {
+    alert("Masukkan nama Anda terlebih dahulu.");
+    return;
+  }
+
+  document.getElementById("welcome-screen").style.display = "none";
+  document.getElementById("game-screen").style.display = "block";
+
+  currentLevel = 0;
+  score = 0;
+  showLevel(currentLevel);
+}
+
+function showLevel(level) {
+  if (level >= levels.length) {
+    showFinalScore();
+  } else {
+    var currentLevelQuestions = levels[level];
+    loadQuestion(currentLevelQuestions);
+  }
+}
+
+// Fungsi lainnya (seperti loadQuestion(), checkAnswer(), disableOptions(), enableOptions(), showNextQuestion(), showFinalScore(), dll.) tetap sama seperti sebelumnya.
+
+function showFinalScore() {
+  document.getElementById("game-screen").innerHTML = `
+    <h2>Permainan Selesai!</h2>
+    <p>Hai, ${playerName}! Skor akhir Anda adalah: ${score} dari ${questions.length * levels.length} pertanyaan.</p>
+    <div id="next-level-button" onclick="startNextLevel()">Lanjut ke Level Berikutnya</div>
+  `;
+}
+
+function startNextLevel() {
+  currentLevel++;
+  if (currentLevel < levels.length) {
+    document.getElementById("next-level-button").style.display = "none";
+    showLevel(currentLevel);
+  } else {
+    // Menampilkan pesan jika sudah melewati semua level
+    document.getElementById("game-screen").innerHTML = `
+      <h2>Permainan Selesai!</h2>
+      <p>Hai, ${playerName}! Skor akhir Anda adalah: ${score} dari ${questions.length * levels.length} pertanyaan.</p>
+      <p>Anda telah menyelesaikan semua level permainan.</p>
+    `;
+  }
+}
+
+  </script>
+</body>
+</html>

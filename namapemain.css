@@ -1,0 +1,87 @@
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffddc1;
+  }
+
+  .container {
+    text-align: center;
+    margin-top: 100px;
+  }
+
+  .header {
+    color: #ff6b6b;
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+
+  .form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  label {
+    font-size: 24px;
+    color: #ffa726;
+    margin-right: 10px;
+  }
+
+  input {
+    padding: 10px;
+    font-size: 20px;
+    border: 2px solid #ffa726;
+    border-radius: 10px;
+    outline: none;
+  }
+
+  button {
+    padding: 12px 30px;
+    font-size: 20px;
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #ff3d67;
+  }
+
+  #greeting {
+    margin-top: 30px;
+    font-size: 36px;
+    color: #ff6b6b;
+    opacity: 0;
+    top: 35%;
+    left: 64%;
+    position: absolute;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  .hidden {
+    animation: fadeIn 1s ease-in-out forwards 2s;
+  }
+
+  #heart-image {
+    position: absolute;
+    top: 50%;
+    left: 73%;
+    width: 300px;
+    height: 300px;
+    transform-origin: center;
+    animation: heartbeat 1s infinite linear;
+  }

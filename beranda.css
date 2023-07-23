@@ -1,0 +1,159 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(image/bgenglish.jpg);
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+.navbar {
+    background: transparent;
+    height: 65px;
+    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3);
+}
+
+.butama g {
+    margin: 0 auto;
+    width: 57%;
+    text-align: center;
+    background: transparent;
+    background-size: cover;
+    padding: 140px;
+    border-radius: 10px;
+    box-shadow: 0 7px 11px rgba(0, 0, 0, 0.3);
+}
+
+#bantuan {
+    width: 70px;
+    height: 40px;
+    position: absolute;
+    top: 85%;
+    left: 12%;
+}
+
+#icone {
+    width: 45px;
+    height: 40px;
+    position: absolute;
+    top: 85%;
+    left: 18%;
+}
+
+button {
+    background-color: #4caf50;
+    color: white;
+    padding: 12px 40px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 15px;
+    font-size: 16px;
+    margin: 0 350px;
+    margin-top: 80px;
+    margin-right: auto;
+    position: absolute;
+}
+
+button:hover {
+    background-color: #3e8e41;
+}
+
+.imege img {
+    width: 50px;
+    top: 0;
+    right: 86px;
+    position: absolute;
+}
+
+.hima img {
+    right: 15px;
+}
+
+.ya img {
+    width: 100px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    columns: 1;
+}
+
+
+#heart-image {
+    position: absolute;
+    top: 64%;
+    left: 82%;
+    width: 140px;
+    height: 140px;
+    transform-origin: center;
+    animation: heartbeat 1s infinite linear;
+}
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.2) rotate(0deg);
+    }
+}
+
+h1 {
+    font-size: 30px;
+}
+
+p {
+    font-size: 20px;
+}
+
+.btn img {
+    width: 140px;
+    height: 100px;
+    position: absolute;
+
+    top: 80%;
+    left: 10px;
+}
+
+.kids-font-container {
+    text-align: center;
+}
+
+.kids-font {
+    font-size: 48px;
+    color: #ff3399;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    -webkit-text-stroke: 2px #fff;
+    /* Memberikan efek luar 2D pada teks */
+    -moz-text-stroke: 2px #fff;
+    margin-top: 100px;
+}
+
+.kids-paragraph {
+    font-size: 26px;
+    color: #ff3399;
+    margin-top: 10px;
+    -webkit-text-stroke: 1px #fff;
+    /* Memberikan efek luar 2D pada teks */
+    -moz-text-stroke: 1px #fff;
+
+}
+
+#imge-ist {
+    width: 140px;
+    height: 100px;
+    position: absolute;
+
+    top: 80%;
+    left: 10px;
+}
+.copyright{
+    top: 90%;
+    left: 76%;
+    position: absolute;
+}
